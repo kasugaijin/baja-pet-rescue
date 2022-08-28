@@ -52,7 +52,7 @@ gem 'bootstrap'
 gem 'devise'
 
 # Use Sass to process CSS
-gem "sassc-rails"
+gem "sassc", "~> 2.1.0"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -84,7 +84,6 @@ group :development do
   # better errors and guard gems
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard', '~> 2.18'
-  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
 end
 
 group :test do
