@@ -91,6 +91,7 @@ To set this application up locally:
 * `bundle install` to install gems (you may have to change gem 'sassc-rails' to gem 'sassc', "~> 2.1.0")
 * `bundle exec install figaro` 
 * add your PostgreSQL database username and database password to `config/application.yml` as ENV variables
+* `rails db:create` to create the database
 * `rails db:migrate` to run all migrations
 * `rails db:seed` to load seed data
 * `rails s` to run the local server
