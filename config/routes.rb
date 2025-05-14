@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/faq', to: 'static_pages#faq'
   get '/partners', to: 'static_pages#partners'
   get '/donate', to: 'static_pages#donate'
+  get '/spay_neuter', to: 'static_pages#spay_neuter'
   get '/privacy_policy', to: 'static_pages#privacy_policy'
   get '/terms_and_conditions', to: 'static_pages#terms_and_conditions'
   get '/cookie_policy', to: 'static_pages#cookie_policy'

@@ -18,6 +18,9 @@ class StaticPagesController < ApplicationController
   def donate
   end
 
+  def spay_neuter
+  end
+
   def privacy_policy
   end
 
