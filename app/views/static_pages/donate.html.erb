@@ -1,11 +1,3 @@
-<%# set header to ensure full page reload to enable PayPal SDK to work properly %>
-<%# see: https://turbo.hotwired.dev/handbook/drive#ensuring-specific-pages-trigger-a-full-reload %>
-<% content_for :head do %>
-  <meta name="turbo-visit-control" content="reload">
-<% end %>
-
-<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-
 <section class="pt-5 pb-5" id="donate">
 	<div class="container mb-md-5 mt-md-5">
 
@@ -17,56 +9,15 @@
 		</div>
 	
 		<!--main section-->
-		<div class="row pb-md-5">
-			<div class="col-md-4 mb-4 mb-md-0">
-				<%= link_to image_tag('about1.jpg', alt: 'Dog in Mexico', class: 'card-img-top rounded') %>
-			</div>
-			<div class="col-md-8 ps-md-4 bigger pb-5 pb-md-0">
-				<p>
-					Baja Pet Rescue relies heavily on donations to keep the program up and running. Even though things are generally cheaper in Mexico, the cost of rescuing each dog mounts up quickly.
-				</p>
-				<br/>
-				<p>
-					Please consider donating to Danielle today so she can continue giving these dogs a chance at a healthier, happier life.
-				</p>	
-				<div class="row text-center mt-5">
-					<div class="col-8 offset-2 border p-5 shadow-sm 
-											rounded bg-white">
-						<h3 class='mb-0'>Donate now via Paypal</h3>
-            <p class='mt-0'>Currency is in Canadian Dollars ($CAD)</p>
-
-						<div id="paypal-donate-button-container" class="text-center mt-2">
-							<script>
-								const business_id = '<%= ENV['PAYPAL_BUSINESS'] %>';
-								
-								PayPal.Donation.Button({
-									env: 'production',
-									business: business_id,
-									image: {
-										src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-										title: 'Donate to Baja Pet Rescue via Paypal.',
-										alt: 'Donate with PayPal button'
-									},
-									onComplete: function (params) {
-										params["source"] = "Paypal"
-										const csrfToken = document.querySelector('[name="csrf-token"]').content
-
-										fetch('https://www.bajapetrescue.com/donations', {
-											method: 'POST',
-											headers: {
-												'Content-Type': 'application/json',
-												'Accept': 'application/json',
-												'X-CSRF-Token': csrfToken
-											},
-											body: JSON.stringify(params)
-										});
-									},
-								}).render('#paypal-donate-button-container');
-							</script>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> <!--row-->
+    <div class="p-4 bigger pb-5">
+      <p>
+        Baja Pet Rescue relies heavily on donations to keep the program up and running. Even though things are generally cheaper in Mexico, the cost of rescuing each dog mounts up quickly.
+        Please consider donating to Danielle today so she can continue giving these dogs a chance at a healthier, happier life.
+      </p>
+        <div class="mt-3 rounded-2" style="position:relative;overflow:hidden;height:600px;width:100%;">
+          <iframe title='Donate to Baja Pet Rescue' style='position: absolute; border: 0; top:0;left:0;bottom:0;right:0;width:100%;height:100%' src='https://www.zeffy.com/embed/donation-form/donate-to-a-spay-campaign' allowpaymentrequest allowTransparency="true">
+          </iframe>
+        </div>
+    </div>
 	</div> <!--container-->
 </section>
