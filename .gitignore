@@ -41,3 +41,4 @@ vcs.xml
 workspace.xml
 .idea/
 .DS_Store
+/vendor/bundle
