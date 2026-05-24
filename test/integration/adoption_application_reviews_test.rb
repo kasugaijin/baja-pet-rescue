@@ -36,8 +36,7 @@ class AdoptionApplicationReviewsTest < ActionDispatch::IntegrationTest
     get '/adopter_applications'
 
     assert_select 'a', @adopter_application.dog.name
-    assert_select 'p', "Applicant: #{@adopter.first_name}
-                      #{@adopter.last_name}"
+    assert_select 'p', "Applicant: #{@adopter.first_name} #{@adopter.last_name}"
     assert_select 'a', 'Adopter Profile'
     assert_select 'a', 'Edit Application'
   end
